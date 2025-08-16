@@ -1,0 +1,16 @@
+if SHIELD_CHARLYTEST_R
+
+config ZMK_KEYBOARD_NAME
+    default "charly-test Keyboard"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_CHARLYTEST_L || SHIELD_CHARLYTEST_R
+
+config ZMK_SPLIT
+    default y
+
+endif
