@@ -1,6 +1,10 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
+    kscan0: kscan {
+		compatible = "zmk,kscan-gpio-charlieplex";
+	};
+    
     default_transform: keymap_transform0 {
         compatible = "zmk,matrix-transform";
         columns = <16>;
