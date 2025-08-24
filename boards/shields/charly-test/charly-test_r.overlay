@@ -7,7 +7,7 @@
     col-offset = <8>;
 };
 
-    kscan0 {
+    &kscan0 {
         compatible = "zmk,kscan-gpio-charlieplex";
         interrupt-gpios = <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // IO2 = INTピン
 
