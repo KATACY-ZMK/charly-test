@@ -4,7 +4,7 @@
 #include "charly-test.dtsi"
 
 
-    kscan0: kscan {
+    kscan0 {
         compatible = "zmk,kscan-gpio-charlieplex";
         interrupt-gpios = <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // IO2 = INTピン
 
