@@ -1,7 +1,7 @@
 if SHIELD_CHARLYTEST_R
 
 config ZMK_KEYBOARD_NAME
-    default "charly-test Keyboard"
+    default "charly-test"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
