@@ -1,18 +1,11 @@
 #include <dt-bindings/zmk/matrix_transform.h>
-// chosen node
+
 / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,physical-layout = &physical_layout0;
+        zmk,matrix_transform = &default_transform;
     };
-};
-// kscan
-/ {
-    kscan0: kscan0 {
-        compatible = "zmk,kscan-gpio-charlieplex";
-        wakeup-source;
-    };
-    
+
     default_transform: keymap_transform0 {
         compatible = "zmk,matrix-transform";
         columns = <16>;
