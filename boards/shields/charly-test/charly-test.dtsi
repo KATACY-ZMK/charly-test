@@ -19,5 +19,9 @@
         RC(0,6)     RC(1,6) RC(2,6) RC(3,6) RC(4,6)     RC(5,6) RC(6,5)     RC(8,6) RC(9,6)                                     RC(10,6) RC(11,6) RC(12,6)
         >;
     };
-};
 
+    kscan0: kscan0 {
+        compatible = "zmk,kscan-gpio-charlieplex";
+        status = "okay";
+    };
+};
