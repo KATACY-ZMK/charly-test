@@ -6,3 +6,10 @@ url: https://github.com/KATACY-ZMK/charly-test
 requires: [seeeduino_xiao_ble]
 features:
   - keys
+  - encoder
+  - backlight
+  - pointer
+  - studio
+siblings:
+  - charly-test_r
+  - charly-test_l
