@@ -3,16 +3,24 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+&mmv {
+    delay-ms = <0>;
+    trigger-period-ms = <10>;
+    time-to-max-speed-ms = <0>;
+    acceleration-exponent = <1>;
+};
 
-    &msc {
+&msc {
     delay-ms = <0>;
     trigger-period-ms = <10>;
     time-to-max-speed-ms = <0>;
     acceleration-exponent = <0>;
-    };
+};
 
-/{
+
+/ {
     behaviors {
+
         rot_kp: sensor_rotate_kp {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
@@ -23,18 +31,13 @@
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
             bindings = <&msc>, <&msc>;
-            tap-ms = <10>;
-        };
 
-        uldr_move: move_up_left_down_right {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&ul_move>, <&dr_move>;
             tap-ms = <10>;
         };
     };
+};
 
-
+/ {
     keymap {
         compatible = "zmk,keymap";
 
