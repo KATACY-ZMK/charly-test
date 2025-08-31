@@ -66,7 +66,7 @@
         
         snipe-layers = <3>;
         scroll-layers = <4 5 6>;
-        autmouse-layer =<2>;
+        automouse-layer = <2>;
     };
 };
 
