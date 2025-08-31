@@ -152,8 +152,8 @@
     },
     {
       "ref": "right1_encoder",
-      "name": "encoder_right2",
-      "identifier": "encoder_right2",
+      "name": "encoder_right1",
+      "identifier": "encoder_right1",
       "enabled": false
     },
     {
