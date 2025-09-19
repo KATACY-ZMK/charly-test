@@ -3,7 +3,7 @@
 
     &kscan0 {
         compatible = "zmk,kscan-gpio-charlieplex";
-        interrupt-gpios = <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // IO2 = INTピン
+        interrupt-gpios = <&gpio0 03 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // IO2 = INTピン
 
         // Charlieplex用 5ピン定義 (IO0–IO4)
         gpios = 
@@ -18,7 +18,7 @@
     };
 
 &left1_encoder {
-   status = "disabled";
+   status = "okay";
 };
 &left2_encoder {
    status = "okay";
