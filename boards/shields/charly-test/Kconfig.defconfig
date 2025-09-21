@@ -13,6 +13,8 @@ if SHIELD_CHARLYTEST_L || SHIELD_CHARLYTEST_R
 config ZMK_SPLIT
     default y
 
+endif
+
 if SHIELD_CHARLYTEST_R
 
 config ZMK_POINTING
