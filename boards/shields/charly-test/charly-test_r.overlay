@@ -1,5 +1,7 @@
 #include "charly-test.dtsi"
 
+&xiao_serial { status = "disabled"; };
+
 &default_transform {
     col-offset = <9>;
 };
@@ -19,6 +21,14 @@
         <&xiao_d 2 GPIO_ACTIVE_HIGH>,  // IO6
         <&xiao_d 0 GPIO_ACTIVE_HIGH>;  // IO7
     };
+
+&right1_encoder {
+   status = "okay";
+};
+
+&right2_encoder {
+   status = "okay";
+};
 
 &pinctrl {
     spi0_default: spi0_default {
@@ -66,7 +76,3 @@
     status = "okay";
     device = <&trackball>;
 };
-
-
-
-
