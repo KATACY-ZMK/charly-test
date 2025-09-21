@@ -24,6 +24,43 @@
         compatible = "zmk,kscan-gpio-charlieplex";
         status = "okay";
     };
+    
+    
+    left1_encoder: encoder_left1 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <24>;
+        status = "disabled";
+    };
+    left2_encoder: encoder_left2 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio1 05 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 03 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <24>;
+        status = "disabled";
+    };
+
+    right1_encoder: encoder_right1 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <24>;
+        status = "disabled";
+    };
+    right2_encoder: encoder_right2 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio1 05 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 03 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <24>;
+        status = "disabled";
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&left1_encoder &left2_encoder &right1_encoder &right2_encoder>;
+        triggers-per-rotation = <6>;
+    };
 
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
