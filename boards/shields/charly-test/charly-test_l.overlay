@@ -17,6 +17,21 @@
         <&xiao_d 0 GPIO_ACTIVE_HIGH>;  // IO7
     };
 
+    left1_encoder: encoder_left1 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <24>;
+        status = "disabled";
+    };
+    left2_encoder: encoder_left2 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio1 05 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 03 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <24>;
+        status = "disabled";
+    };
+
 &left1_encoder {
    status = "okay";
 };
