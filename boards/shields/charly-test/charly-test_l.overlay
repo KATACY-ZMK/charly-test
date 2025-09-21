@@ -32,6 +32,12 @@
         status = "disabled";
     };
 
+ sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&left1_encoder &left2_encoder>;
+        triggers-per-rotation = <6>;
+    };
+
 &left1_encoder {
    status = "okay";
 };
