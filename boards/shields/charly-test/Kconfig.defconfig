@@ -13,4 +13,13 @@ if SHIELD_CHARLYTEST_L || SHIELD_CHARLYTEST_R
 config ZMK_SPLIT
     default y
 
+if SHIELD_CHARLYTEST_R
+
+config ZMK_POINTING
+    default y
+
+# Assuming pointing device uses SPI
+config SPI
+    default y
+
 endif
