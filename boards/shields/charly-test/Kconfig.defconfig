@@ -1,25 +1,32 @@
 if SHIELD_CHARLYTEST_R
 
 config ZMK_KEYBOARD_NAME
+    string
     default "charly-test"
 
 config ZMK_SPLIT
+    bool
     default y
 
 config ZMK_SPLIT_ROLE_CENTRAL
+    bool
     default y
 
 endif
 
+
 if SHIELD_CHARLYTEST_L
 
 config ZMK_KEYBOARD_NAME
+    string
     default "charly-test"
 
 config ZMK_SPLIT
+    bool
     default y
 
 config ZMK_SPLIT_ROLE_PERIPHERAL
+    bool
     default y
 
 endif
