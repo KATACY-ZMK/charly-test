@@ -1,10 +1,6 @@
 #include "charly-test.dtsi"
 
-
     &kscan0 {
-        compatible = "zmk,kscan-gpio-charlieplex";
-        interrupt-gpios = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // IO2 = INTピン
-
         // Charlieplex用 5ピン定義 (IO0–IO4)
         gpios = 
         <&xiao_d 10 GPIO_ACTIVE_HIGH>,  // IO0
@@ -15,6 +11,9 @@
         <&xiao_d 3 GPIO_ACTIVE_HIGH>,  // IO5
         <&xiao_d 2 GPIO_ACTIVE_HIGH>,  // IO6
         <&xiao_d 0 GPIO_ACTIVE_HIGH>;  // IO7
+
+        interrupt-gpios = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // IO2 = INTピン
+
     };
 
 &left1_encoder {
