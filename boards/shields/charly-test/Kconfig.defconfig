@@ -8,15 +8,10 @@ config ZMK_SPLIT_ROLE_CENTRAL
 
 endif
 
-if SHIELD_CHARLYTEST_L
-
-config ZMK_KEYBOARD_NAME
-    default "charly-testl"
+if SHIELD_CHARLYTEST_L|| SHIELD_CHARLYTEST_R
 
 config ZMK_SPLIT
     default y
 
-config ZMK_SPLIT_ROLE_PERIPHERAL
-    default y
 
 endif
