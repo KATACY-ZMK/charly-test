@@ -1,24 +1,27 @@
+/* charly-test_l.overlay */
 #include "charly-test.dtsi"
 
-    &kscan0 {
-        // Charlieplex用 5ピン定義 (IO0–IO4)
-        gpios = 
-        <&xiao_d 10 GPIO_ACTIVE_HIGH>,  // IO0
-        <&xiao_d 9 GPIO_ACTIVE_HIGH>,  // IO1
-        <&xiao_d 8 GPIO_ACTIVE_HIGH>,  // IO2
-        <&xiao_d 7 GPIO_ACTIVE_HIGH>,  // IO3
-        <&xiao_d 6 GPIO_ACTIVE_HIGH>,  // IO4
-        <&xiao_d 3 GPIO_ACTIVE_HIGH>,  // IO5
-        <&xiao_d 2 GPIO_ACTIVE_HIGH>,  // IO6
-        <&xiao_d 0 GPIO_ACTIVE_HIGH>;  // IO7
+&kscan0 {
+    compatible = "zmk,kscan-gpio-charlieplex";
 
-        interrupt-gpios = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // IO2 = INTピン
+    /* D1 = P0.03 */
+    interrupt-gpios = <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 
-    };
+    gpios = 
+    <&gpio1 15 GPIO_ACTIVE_HIGH>,  // D10
+    <&gpio1 14 GPIO_ACTIVE_HIGH>,  // D9
+    <&gpio1 13 GPIO_ACTIVE_HIGH>,  // D8
+    <&gpio1 12 GPIO_ACTIVE_HIGH>,  // D7
+    <&gpio1 11 GPIO_ACTIVE_HIGH>,  // D6
+    <&gpio0 29 GPIO_ACTIVE_HIGH>,  // D3
+    <&gpio0 28 GPIO_ACTIVE_HIGH>,  // D2
+    <&gpio0  2 GPIO_ACTIVE_HIGH>;  // D0
+};
 
 &left1_encoder {
    status = "okay";
 };
+
 &left2_encoder {
    status = "okay";
 };

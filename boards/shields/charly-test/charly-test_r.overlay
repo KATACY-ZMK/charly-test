@@ -1,3 +1,4 @@
+/* charly-test_r.overlay */
 #include "charly-test.dtsi"
 
 &xiao_serial { status = "disabled"; };
@@ -6,21 +7,26 @@
     col-offset = <9>;
 };
 
-    &kscan0 {
-        compatible = "zmk,kscan-gpio-charlieplex";
-        interrupt-gpios = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // IO2 = INTピン
+&kscan0 {
+    compatible = "zmk,kscan-gpio-charlieplex";
+    
+    /* D1 は P0.03 なので &gpio0 3 */
+    interrupt-gpios = <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 
-        // Charlieplex用 5ピン定義 (IO0–IO4)
-        gpios = 
-        <&xiao_d 10 GPIO_ACTIVE_HIGH>,  // IO0
-        <&xiao_d 9 GPIO_ACTIVE_HIGH>,  // IO1
-        <&xiao_d 8 GPIO_ACTIVE_HIGH>,  // IO2
-        <&xiao_d 7 GPIO_ACTIVE_HIGH>,  // IO3
-        <&xiao_d 6 GPIO_ACTIVE_HIGH>,  // IO4
-        <&xiao_d 3 GPIO_ACTIVE_HIGH>,  // IO5
-        <&xiao_d 2 GPIO_ACTIVE_HIGH>,  // IO6
-        <&xiao_d 0 GPIO_ACTIVE_HIGH>;  // IO7
-    };
+    /* Xiao BLEのピン変換マップ */
+    /* D0=P0.02, D1=P0.03, D2=P0.28, D3=P0.29 */
+    /* D6=P1.11, D7=P1.12, D8=P1.13, D9=P1.14, D10=P1.15 */
+
+    gpios = 
+    <&gpio1 15 GPIO_ACTIVE_HIGH>,  // D10 (IO0)
+    <&gpio1 14 GPIO_ACTIVE_HIGH>,  // D9  (IO1)
+    <&gpio1 13 GPIO_ACTIVE_HIGH>,  // D8  (IO2)
+    <&gpio1 12 GPIO_ACTIVE_HIGH>,  // D7  (IO3)
+    <&gpio1 11 GPIO_ACTIVE_HIGH>,  // D6  (IO4)
+    <&gpio0 29 GPIO_ACTIVE_HIGH>,  // D3  (IO5)
+    <&gpio0 28 GPIO_ACTIVE_HIGH>,  // D2  (IO6)
+    <&gpio0  2 GPIO_ACTIVE_HIGH>;  // D0  (IO7)
+};
 
 &right1_encoder {
    status = "okay";
