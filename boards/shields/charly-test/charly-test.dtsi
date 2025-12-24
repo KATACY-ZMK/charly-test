@@ -1,5 +1,6 @@
 /* charly-test.dtsi */
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/input/input-event-codes.h>
 
 / {
     chosen {
@@ -7,6 +8,9 @@
         zmk,matrix-transform = &default_transform;
     };
 
+    /* =======================
+     * Matrix transform
+     * ======================= */
     default_transform: keymap_transform0 {
         compatible = "zmk,matrix-transform";
         columns = <16>;
@@ -21,12 +25,18 @@
         >;
     };
 
+    /* =======================
+     * Charlieplex kscan
+     * ======================= */
     kscan0: kscan0 {
         compatible = "zmk,kscan-gpio-charlieplex";
         wakeup-source;
-        /* gpiosの設定はoverlayファイル側で行います */
+        /* gpios は overlay 側で設定 */
     };
-    
+
+    /* =======================
+     * Encoders (disabled)
+     * ======================= */
     left1_encoder: encoder_left1 {
         compatible = "alps,ec11";
         a-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -37,8 +47,8 @@
 
     left2_encoder: encoder_left2 {
         compatible = "alps,ec11";
-        a-gpios = <&gpio1 05 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio1 03 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        a-gpios = <&gpio1 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <24>;
         status = "disabled";
     };
@@ -53,43 +63,64 @@
 
     right2_encoder: encoder_right2 {
         compatible = "alps,ec11";
-        a-gpios = <&gpio1 05 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio1 03 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        a-gpios = <&gpio1 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <24>;
         status = "disabled";
     };
 
-    sensors: sensors {
+    sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&left1_encoder &left2_encoder &right1_encoder &right2_encoder>;
         triggers-per-rotation = <6>;
     };
 
-    trackball_listener: trackball_listener {
+    trackball_listener {
         compatible = "zmk,input-listener";
-        status = "okay";
         device = <&trackball>;
+        status = "okay";
     };
-}; 
+};
 
-/* SPI設定の修正箇所：以前のエラーの原因を除去済み */
+/* =======================
+ * SPI pinctrl (必須)
+ * ======================= */
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <
+                NRF_PSEL(SPIM_SCK,  0, 2)
+                NRF_PSEL(SPIM_MOSI, 0, 3)
+                NRF_PSEL(SPIM_MISO, 0, 4)
+            >;
+        };
+    };
+};
+
+/* =======================
+ * SPI0 + PMW3610
+ * ======================= */
 &spi0 {
     status = "okay";
-    /* ここにあった compatible や pinctrl-* は削除しました */
-    
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-names = "default";
+
     cs-gpios = <&gpio1 1 GPIO_ACTIVE_LOW>;
 
     trackball: trackball@0 {
-        status = "okay";
         compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
+
         motion-gpios = <&gpio0 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+
         res-cpi = <600>;
         zephyr,axis-x = <INPUT_REL_X>;
         zephyr,axis-y = <INPUT_REL_Y>;
         invert-x;
         invert-y;
         force-awake;
+
+        status = "okay";
     };
 };
