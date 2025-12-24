@@ -12,11 +12,25 @@
 &trackball_listener {
     input-processors = <&zip_xy_scaler 3 2>;
 
+    /* 通常スクロール (レイヤー4: SCROLL) */
     scroller {
-        layers = <1>;
+        layers = <4>;
         input-processors = <&zip_xy_to_scroll_mapper>;
     };
+
+    /* 高速スクロール (レイヤー5: SCROLL_WARP) */
+    scroller_warp {
+        layers = <5>;
+        input-processors = <&zip_xy_scaler 4 1>, <&zip_xy_to_scroll_mapper>;
+    };
+
+    /* 精密スクロール (レイヤー6: SCROLL_SNIPE) */
+    scroller_snipe {
+        layers = <6>;
+        input-processors = <&zip_xy_scaler 1 4>, <&zip_xy_to_scroll_mapper>;
+    };
 };
+
 / {
     keymap {
         compatible = "zmk,keymap";
