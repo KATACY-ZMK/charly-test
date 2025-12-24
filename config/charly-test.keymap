@@ -1,6 +1,4 @@
-//#include <dt-bindings/zmk/mouse.h>
-
-//#include <behaviors/rgbled_widget.dtsi>
+#include <dt-bindings/zmk/mouse.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
@@ -10,14 +8,15 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
-&trackpad_listener {
+/* 名前を trackball_listener に修正し、末尾にセミコロンを追加 */
+&trackball_listener {
     input-processors = <&zip_xy_scaler 3 2>;
 
     scroller {
         layers = <1>;
         input-processors = <&zip_xy_to_scroll_mapper>;
     };
-}
+};
 / {
     keymap {
         compatible = "zmk,keymap";
