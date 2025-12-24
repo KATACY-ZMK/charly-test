@@ -30,6 +30,9 @@
     kscan0: kscan0 {
         compatible = "zmk,kscan-gpio-charlieplex";
         wakeup-source;
+        // 以下の2行を追加
+        columns = <7>;
+        rows = <8>;
     };
 };
 
