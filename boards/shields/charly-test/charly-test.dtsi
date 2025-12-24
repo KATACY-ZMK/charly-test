@@ -30,9 +30,16 @@
     kscan0: kscan0 {
         compatible = "zmk,kscan-gpio-charlieplex";
         wakeup-source;
-        // 以下の2行を追加
-        columns = <7>;
-        rows = <8>;
+    };
+};
+
+// 物理レイアウトの定義を新設 
+/ {
+    physical_layout0: physical_layout0 {
+        compatible = "zmk,physical-layout";
+        display-name = "Default Layout";
+        transform = <&default_transform>; // 既存の transform を参照 
+        kscan = <&kscan0>;                // 既存の kscan を参照 [cite: 11]
     };
 };
 
