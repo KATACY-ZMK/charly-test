@@ -5,7 +5,7 @@
 &xiao_serial { status = "disabled"; };
 
 &default_transform {
-    row-offset = <9>;
+    row-offset = <8>;
 };
 
 &kscan0 {
