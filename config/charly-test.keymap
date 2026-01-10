@@ -64,8 +64,7 @@
             sensor-bindings =
                 <&inc_dec_kp G G>,
                 <&inc_dec_kp E F>,
-                <&inc_dec_kp C D>,
-                <&inc_dec_kp A B>;
+
         };
 
         layer_1 {
@@ -81,8 +80,7 @@
             sensor-bindings = <
                 &inc_dec_kp LEFT_ARROW RIGHT_ARROW
                 &inc_dec_kp UP_ARROW   DOWN_ARROW
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
+
             >;
         };
 
@@ -99,8 +97,7 @@
             sensor-bindings = <
                 &inc_dec_kp LEFT_ARROW RIGHT_ARROW
                 &inc_dec_kp UP_ARROW   DOWN_ARROW
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
+
             >;
         };
 
@@ -115,8 +112,6 @@
             >;
 
             sensor-bindings = <
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
                 &inc_dec_kp LEFT_ARROW RIGHT_ARROW
                 &inc_dec_kp UP_ARROW   DOWN_ARROW
             >;
@@ -135,8 +130,6 @@
             sensor-bindings = <
                 &inc_dec_kp LEFT_ARROW RIGHT_ARROW
                 &inc_dec_kp UP_ARROW   DOWN_ARROW
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
             >;
         };
 
@@ -153,8 +146,6 @@
             sensor-bindings = <
                 &inc_dec_kp LEFT_ARROW RIGHT_ARROW
                 &inc_dec_kp UP_ARROW   DOWN_ARROW
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
             >;
         };
 
@@ -169,8 +160,6 @@
             >;
 
             sensor-bindings = <
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
                 &inc_dec_kp LEFT_ARROW RIGHT_ARROW
                 &inc_dec_kp UP_ARROW   DOWN_ARROW
             >;

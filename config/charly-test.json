@@ -144,22 +144,11 @@
       "compatible": "alps,ec11",
       "enabled": false
     },
-    {
-      "ref": "left2_encoder",
-      "name": "encoder_left2",
-      "identifier": "encoder_left2",
-      "enabled": false
-    },
+
     {
       "ref": "right1_encoder",
       "name": "encoder_right1",
       "identifier": "encoder_right1",
-      "enabled": false
-    },
-    {
-      "ref": "right2_encoder",
-      "name": "encoder_right2",
-      "identifier": "encoder_right2",
       "enabled": false
     }
   ]
