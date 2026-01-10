@@ -44,8 +44,16 @@
     };
 };
 
-&vbatt {
-    status = "disabled";
+/ {
+    chosen {
+        // ZMKに「バッテリーセンサーは無い」と伝える
+        /delete-property/ zmk,battery;
+    };
+
+    // ... 前回の修正箇所 ...
+    &vbatt {
+        status = "disabled";
+    };
 };
 
 // encoder
