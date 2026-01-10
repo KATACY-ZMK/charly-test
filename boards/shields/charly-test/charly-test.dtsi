@@ -44,10 +44,9 @@
     };
 };
 
-vbatt: vbatt {
-        // Disable default battery monitoring
-        status = "disabled";
-    };
+&vbatt {
+    status = "disabled";
+};
 
 // encoder
 / {
