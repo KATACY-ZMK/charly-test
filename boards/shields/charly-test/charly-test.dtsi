@@ -14,7 +14,6 @@
         zmk,battery = &vbatt;
         /delete-property/ zmk,battery;
     };
-    
             zmk,kscan = &kscan0;
     // ここに他の設定（kscanなど）があれば書く
     
@@ -74,13 +73,13 @@
         status = "disabled";
     };
 
-    left2_encoder: encoder_left2 {
-        compatible = "alps,ec11";
-        a-gpios = <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio1 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <24>;
-        status = "disabled";
-    };
+// left2_encoder: encoder_left2 {
+//     compatible = "alps,ec11";
+//     a-gpios = <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+//     b-gpios = <&gpio1 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+//     steps = <24>;
+//     status = "disabled";
+// };
 
     right1_encoder: encoder_right1 {
         compatible = "alps,ec11";
@@ -90,20 +89,21 @@
         status = "disabled";
     };
 
-    right2_encoder: encoder_right2 {
-        compatible = "alps,ec11";
-        a-gpios = <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio1 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <24>;
-        status = "disabled";
-    };
+// right2_encoder: encoder_right2 {
+//     compatible = "alps,ec11";
+//     a-gpios = <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+//     b-gpios = <&gpio1 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+//     steps = <24>;
+//     status = "disabled";
+// };
 };
 
 //sensor
 / {
     sensors {
         compatible = "zmk,keymap-sensors";
-        sensors = <&left1_encoder &left2_encoder &right1_encoder &right2_encoder>;
+//   sensors = <&left1_encoder &left2_encoder &right1_encoder &right2_encoder>;
+sensors = <&left1_encoder  &right1_encoder>;
         triggers-per-rotation = <6>;
     };
 
