@@ -8,6 +8,25 @@
     };
 };
 
+/ {
+    chosen { 
+        
+        zmk,battery = &vbatt;
+        /delete-property/ zmk,battery;
+    };
+    
+            zmk,kscan = &kscan0;
+    // ここに他の設定（kscanなど）があれば書く
+    
+}; // ←★重要：ここで一旦、全部を閉じます！
+
+
+// ▼▼▼ ここ（一番外側）に書くのが正解です ▼▼▼
+&vbatt {
+    status = "disabled";
+};
+
+
 //matrix transoform
 / {
     default_transform: keymap_transform0 {
@@ -44,21 +63,6 @@
     };
 };
 
-/ {
-    chosen {
-        zmk,battery = &vbatt;
-        /delete-property/ zmk,battery;
-    };
-
-    // ここに他の設定（kscanなど）があれば書く
-    
-}; // ←★重要：ここで一旦、全部を閉じます！
-
-
-// ▼▼▼ ここ（一番外側）に書くのが正解です ▼▼▼
-&vbatt {
-    status = "disabled";
-};
 
 // encoder
 / {
