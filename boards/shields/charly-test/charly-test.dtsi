@@ -46,14 +46,18 @@
 
 / {
     chosen {
-        // ZMKに「バッテリーセンサーは無い」と伝える
+        zmk,battery = &vbatt;
         /delete-property/ zmk,battery;
     };
 
-    // ... 前回の修正箇所 ...
-    &vbatt {
-        status = "disabled";
-    };
+    // ここに他の設定（kscanなど）があれば書く
+    
+}; // ←★重要：ここで一旦、全部を閉じます！
+
+
+// ▼▼▼ ここ（一番外側）に書くのが正解です ▼▼▼
+&vbatt {
+    status = "disabled";
 };
 
 // encoder
