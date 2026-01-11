@@ -25,3 +25,7 @@
 &left2_encoder {
    status = "okay";
 };
+
+&uicr {
+        nfct-pins-as-gpios;
+};
