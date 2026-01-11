@@ -1,15 +1,14 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/input/input-event-codes.h>
 
-// chosen node
+
 / {
     chosen {
         zmk,kscan = &kscan0;
     };
-};
 
-//matrix transoform
-/ {
+
+
     default_transform: keymap_transform0 {
         compatible = "zmk,matrix-transform";
         columns = <7>;
@@ -24,28 +23,22 @@
 >;
 
     };
-};
 
-// kscan
-/ {
     kscan0: kscan0 {
         compatible = "zmk,kscan-gpio-charlieplex";
         wakeup-source;
     };
-};
 
-// 物理レイアウトの定義を新設 
-/ {
+
     physical_layout0: physical_layout0 {
         compatible = "zmk,physical-layout";
         display-name = "Default Layout";
         transform = <&default_transform>; // 既存の transform を参照 
         kscan = <&kscan0>;                // 既存の kscan を参照 [cite: 11]
     };
-};
 
-// encoder
-/ {
+
+
     left1_encoder: encoder_left1 {
         compatible = "alps,ec11";
         a-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -77,19 +70,14 @@
         steps = <24>;
         status = "disabled";
     };
-};
 
-//sensor
-/ {
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&left1_encoder &left2_encoder &right1_encoder &right2_encoder>;
         triggers-per-rotation = <6>;
     };
 
-};
 
-//trackball
 &pinctrl {
     /* SPIピン設定：Xiao BLE標準(D8,D9,D10)に準拠 */
     spi0_default: spi0_default {
@@ -143,5 +131,10 @@
         status = "disabled";
         device = <&trackball>;
     };
+};
+
+};
+    &uicr {
+        nfct-pins-as-gpios;
 };
 
