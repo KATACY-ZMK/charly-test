@@ -1,4 +1,4 @@
-#include "charly-test.dtsi"
+#include "ec-charly.dtsi"
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
@@ -24,13 +24,13 @@
         <&xiao_d 0 GPIO_ACTIVE_HIGH>;  // IO7
 };
 
-&right1_encoder { 
-    status = "okay"; 
-    };
-    
-&right2_encoder { 
-    status = "okay"; 
-    };
+&right1_encoder {
+   status = "okay";
+};
+
+&right2_encoder {
+   status = "okay";
+};
 
 &trackball_listener {
     status = "okay";

@@ -1,10 +1,6 @@
-/* charly-test_l.overlay */
-#include "charly-test.dtsi"
-
+#include "ec-charly.dtsi"
 &kscan0 {
     compatible = "zmk,kscan-gpio-charlieplex";
-
-    /* D1 = P0.03 */
     interrupt-gpios = <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 
     gpios = 
@@ -25,4 +21,3 @@
 &left2_encoder {
    status = "okay";
 };
-
