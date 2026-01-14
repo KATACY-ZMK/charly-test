@@ -32,10 +32,9 @@
    status = "okay";
 };
 
-&trackball_listener {
-    status = "okay";
-    compatible = "zmk,input-listener";
-    device = <&trackball>;
-    };
-
+// &trackball_listener {
+//    status = "okay";
+//    compatible = "zmk,input-listener";
+//    device = <&trackball>;
+//    };
 
