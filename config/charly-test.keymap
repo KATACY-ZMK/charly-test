@@ -13,46 +13,46 @@
 
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
-/* 名前を trackball_listener に修正し、末尾にセミコロンを追加 */
-
-&trackball_listener {
-    /* ① 通常時の速度 (1.5倍) */
-
-    input-processors = <&zip_xy_scaler 3 2>;
-
-    /* ② 低速モード (SNIPE: Layer 3) */
-    /* 1/2 = 0.5倍速 */
-
-    snipe {
-        layers = <3>;
-        input-processors = <&zip_xy_scaler 1 2>;
-    };
-
-    /* ③ 高速モード (MOUSE: Layer 2) */
-    /* 5/2 = 2.5倍速 (ここは好きな数値に変えてOK) */
-
-    turbo {
-        layers = <2>;
-        input-processors = <&zip_xy_scaler 5 2>;
-    };
-
-    /* --- 以下スクロール設定 (変更なし) --- */
-
-    scroller {
-        layers = <4>;
-        input-processors = <&zip_xy_to_scroll_mapper>;
-    };
-
-    scroller_warp {
-        layers = <5>;
-        input-processors = <&zip_xy_scaler 4 1>, <&zip_xy_to_scroll_mapper>;
-    };
-
-    scroller_snipe {
-        layers = <6>;
-        input-processors = <&zip_xy_scaler 1 4>, <&zip_xy_to_scroll_mapper>;
-    };
-};
+// /* 名前を trackball_listener に修正し、末尾にセミコロンを追加 */
+// 
+// &trackball_listener {
+//     /* ① 通常時の速度 (1.5倍) */
+// 
+//     input-processors = <&zip_xy_scaler 3 2>;
+// 
+//     /* ② 低速モード (SNIPE: Layer 3) */
+//     /* 1/2 = 0.5倍速 */
+// 
+//     snipe {
+//         layers = <3>;
+//         input-processors = <&zip_xy_scaler 1 2>;
+//     };
+// 
+//     /* ③ 高速モード (MOUSE: Layer 2) */
+//     /* 5/2 = 2.5倍速 (ここは好きな数値に変えてOK) */
+// 
+//     turbo {
+//         layers = <2>;
+//         input-processors = <&zip_xy_scaler 5 2>;
+//     };
+// 
+//     /* --- 以下スクロール設定 (変更なし) --- */
+// 
+//     scroller {
+//         layers = <4>;
+//         input-processors = <&zip_xy_to_scroll_mapper>;
+//     };
+// 
+//     scroller_warp {
+//         layers = <5>;
+//         input-processors = <&zip_xy_scaler 4 1>, <&zip_xy_to_scroll_mapper>;
+//     };
+// 
+//     scroller_snipe {
+//         layers = <6>;
+//         input-processors = <&zip_xy_scaler 1 4>, <&zip_xy_to_scroll_mapper>;
+//     };
+// };
 
 / {
     keymap {
