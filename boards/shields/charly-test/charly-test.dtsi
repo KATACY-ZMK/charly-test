@@ -1,6 +1,9 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/input/input-event-codes.h>
 
+    &uicr {
+        nfct-pins-as-gpios;
+};
 
 / {
     chosen {
@@ -134,7 +137,5 @@
 
 
 };
-    &uicr {
-        nfct-pins-as-gpios;
-};
+
 
