@@ -1,4 +1,4 @@
-if SHIELD_CHARLYTEST_L
+if SHIELD_CHARLYTEST_R
 
 config ZMK_KEYBOARD_NAME
     default "charly-test"
